@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_album"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="fitXY"
+        android:transitionName="albumArt"/>
+
+    <TextView
+        android:id="@+id/album_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_album"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/tracks_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/image_album"
+        android:layout_alignEnd="@id/image_album"
+        android:layout_marginBottom="-24dp"
+        android:layout_marginRight="32dp"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        />
+
+    <FrameLayout
+        android:id="@+id/listFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/album_name">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tracks_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/track_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/action_container"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="#DD333333"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_skip_next_black_24dp"
+            />
+
+        <ImageButton
+            android:id="@+id/btnPlayOrPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btnNext"
+            android:background="@null"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_play_circle_outline_black_24dp"/>
+
+        <ImageButton
+            android:id="@+id/btnPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btnPlayOrPause"
+            android:background="@null"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_skip_previous_black_24dp"
+            />
+
+        <TextView
+            android:id="@+id/currentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@id/btnPrev"
+            android:maxLines="1"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:text=""
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+</RelativeLayout>
