@@ -20,6 +20,9 @@ import com.jamendo.renhaojie.hear.HearApplication;
 import com.jamendo.renhaojie.hear.R;
 import com.jamendo.renhaojie.hear.activities.tracks.TracksActivity;
 import com.jamendo.renhaojie.hear.adapters.AlbumListAdapter;
+import com.microsoft.azure.mobile.MobileCenter;
+import com.microsoft.azure.mobile.analytics.Analytics;
+import com.microsoft.azure.mobile.crashes.Crashes;
 
 import java.io.ByteArrayOutputStream;
 
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MianContract.IMai
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
-        
+
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         album_list.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
@@ -99,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements MianContract.IMai
                 }
             }
         });
+
+        MobileCenter.start(getApplication(), "d57e0ec4-2c19-4a9f-9794-6200e5e437d9",
+                Analytics.class, Crashes.class);
     }
 
     @Override
